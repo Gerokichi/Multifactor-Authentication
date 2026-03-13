@@ -1,14 +1,20 @@
 #include <stdio.h>
 
-void Error();
+void SystemResponse(bool error);
 
 int main() {
-    Error();
+    SystemResponse(false);
 
     return 0;
 }
 
 
-void Error() {
-    printf("chyba\n");
+
+void SystemResponse(const bool error) {
+    if (error) {
+        printf("chyba\n");
+    }
+    else {
+        printf("ok\n");
+    }
 }
