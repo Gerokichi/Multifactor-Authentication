@@ -1,0 +1,2 @@
+meno1:heslo1
+meno2:heslo2
