@@ -3,6 +3,7 @@
 
 void Eat(char *sosud, size_t sosud_size);
 unsigned int AuraXHash(const char* pass);
+bool Digest(char user, unsigned int pass, const char* key);
 
 void SystemResponse(bool error);
 
@@ -21,13 +22,15 @@ int main() {
         Eat(sosud[i], sosud_size[i]);
     }
 
-    printf("Name: %s\n", username);
-    printf("Pass: %s\n", password);
-    printf("Key: %s\n", key);
+    // printf("Name: %s\n", username);
+    // printf("Pass: %s\n", password);
+    // printf("Key: %s\n", key);
 
     unsigned int pass_faberge = AuraXHash(password);
 
-    printf("Hash pass: %u\n", pass_faberge);
+
+
+    // printf("Hash pass: %u\n", pass_faberge);
 
     return 0;
 }
@@ -57,6 +60,22 @@ unsigned int AuraXHash(const char* pass) {
     }
 
     return hash;
+}
+
+bool Digest(const char user, unsigned int pass, const char* key) {
+    FILE *user_date = fopen("hesla.csv", "r");
+    if (user_date == NULL) return false;
+
+    char username[26];
+
+    while (fgets(username, sizeof(username), user_date) != NULL) {
+        char* name = strtok(username, ":");
+
+
+    }
+
+    fclose(user_date);
+    return true;
 }
 
 
