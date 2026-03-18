@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 void Eat(char *sosud, size_t sosud_size);
 unsigned int AuraXHash(const char* pass);
@@ -20,7 +21,7 @@ int main() {
     size_t sosud_size[] = {sizeof(username), sizeof(password), sizeof(key)};
 
     for (int i = 0; mode[i] != NULL; i++) {
-        printf("%s:", mode[i]);
+        printf("%s: ", mode[i]);
         Eat(sosud[i], sosud_size[i]);
     }
 
@@ -133,4 +134,5 @@ void Years_In_Dagestan(unsigned int boychik, char *man, int length) {
         man[i] = boychik % 10 + '0';
         boychik /= 10;
     }
+    man[length] = '\0';
 }
