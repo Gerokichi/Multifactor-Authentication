@@ -116,6 +116,14 @@ bool Digest(const char* name, const char* pass, const char* key) {
 
     fclose(new_user_data);
     fclose(user_data);
+
+    if (permit) {
+        remove("hesla.csv");
+        rename("temp_hesla.csv", "hesla.csv");
+    } else {
+        remove("temp_hesla.csv");
+    }
+
     return permit;
 }
 
